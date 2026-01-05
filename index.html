@@ -2,161 +2,131 @@
 <html lang="bg">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Покана за среща</title>
 
 <style>
-    body {
-        margin: 0;
-        height: 100vh;
-        background: pink;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: Arial, sans-serif;
-    }
+body {
+    margin: 0;
+    height: 100vh;
+    background: #ffc0d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
 
-    .container {
-        text-align: center;
-        position: relative;
-    }
+.container {
+    text-align: center;
+}
 
-    .sausage {
-        width: 120px;
-        height: 260px;
-        background: #d68b5a;
-        border-radius: 60px;
-        margin: 0 auto 20px;
-        position: relative;
-        animation: wave 1s infinite alternate;
-    }
+h1 {
+    margin: 20px 0;
+}
 
-    .eye {
-        width: 10px;
-        height: 10px;
-        background: black;
-        border-radius: 50%;
-        position: absolute;
-        top: 60px;
-    }
+.salami {
+    width: 180px;
+}
 
-    .eye.left { left: 35px; }
-    .eye.right { right: 35px; }
+.buttons {
+    position: relative;
+    height: 120px;
+}
 
-    .smile {
-        width: 40px;
-        height: 20px;
-        border-bottom: 4px solid black;
-        border-radius: 0 0 40px 40px;
-        position: absolute;
-        top: 85px;
-        left: 40px;
-    }
+button {
+    padding: 14px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
 
-    .hand {
-        width: 40px;
-        height: 10px;
-        background: #d68b5a;
-        position: absolute;
-        top: 120px;
-    }
+#yes {
+    background: #ff4f9a;
+    color: white;
+}
 
-    .hand.left {
-        left: -35px;
-        transform-origin: right;
-        animation: handWave 0.5s infinite alternate;
-    }
+#no {
+    background: #eee;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 70px;
+    transition: top 0.2s ease;
+}
 
-    .hand.right {
-        right: -35px;
-    }
+.result {
+    display: none;
+}
 
-    h1 {
-        margin-bottom: 20px;
-    }
+.couple {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
 
-    button {
-        padding: 12px 25px;
-        font-size: 18px;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-        margin: 10px;
-    }
-
-    #yes {
-        background: #ff5fa2;
-        color: white;
-    }
-
-    #no {
-        background: #ccc;
-        position: absolute;
-    }
-
-    .result {
-        display: none;
-    }
-
-    .double {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-    }
-
-    @keyframes wave {
-        from { transform: rotate(-2deg); }
-        to { transform: rotate(2deg); }
-    }
-
-    @keyframes handWave {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(20deg); }
-    }
+.hand {
+    width: 30px;
+    height: 10px;
+    background: #6b3e2e;
+    border-radius: 5px;
+}
 </style>
 </head>
 
 <body>
 
 <div class="container" id="main">
-    <div class="sausage">
-        <div class="eye left"></div>
-        <div class="eye right"></div>
-        <div class="smile"></div>
-        <div class="hand left"></div>
-        <div class="hand right"></div>
-    </div>
+    <img src="salami.png" class="salami">
 
     <h1>Ще излезеш ли с мен 💕</h1>
 
-    <button id="yes">Да</button>
-    <button id="no">Не</button>
+    <div class="buttons">
+        <button id="yes">Да</button>
+        <button id="no">Не</button>
+    </div>
 </div>
 
 <div class="container result" id="result">
-    <div class="double">
-        <div class="sausage"></div>
-        <div class="sausage"></div>
+    <div class="couple">
+        <img src="salami.png" class="salami">
+        <div class="hand"></div>
+        <div class="hand"></div>
+        <img src="salami.png" class="salami">
     </div>
+
     <h1>Нямам търпение 😍</h1>
 </div>
 
 <script>
-    const noBtn = document.getElementById("no");
-    const yesBtn = document.getElementById("yes");
-    const main = document.getElementById("main");
-    const result = document.getElementById("result");
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const main = document.getElementById("main");
+const result = document.getElementById("result");
 
-    noBtn.addEventListener("mouseover", () => {
-        const x = Math.random() * (window.innerWidth - 100);
-        const y = Math.random() * (window.innerHeight - 50);
-        noBtn.style.left = x + "px";
-        noBtn.style.top = y + "px";
-    });
+let direction = 1;
 
-    yesBtn.addEventListener("click", () => {
-        main.style.display = "none";
-        result.style.display = "block";
-    });
+noBtn.addEventListener("touchstart", moveNo);
+noBtn.addEventListener("mouseenter", moveNo);
+
+function moveNo() {
+    let currentTop = noBtn.offsetTop;
+    let newTop = currentTop + (direction * 40);
+
+    if (newTop > 90 || newTop < 40) {
+        direction *= -1;
+        newTop = currentTop + (direction * 40);
+    }
+
+    noBtn.style.top = newTop + "px";
+}
+
+yesBtn.addEventListener("click", () => {
+    main.style.display = "none";
+    result.style.display = "block";
+});
 </script>
 
 </body>
