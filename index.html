@@ -1,227 +1,213 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8" />
-  <title>Покана за среща</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #40e0d0;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
+<meta charset="UTF-8">
+<title>Покана 💙</title>
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: "Comic Sans MS", cursive;
     }
 
-    .container { text-align: center; }
+    body {
+        margin: 0;
+        height: 100vh;
+        background: #33cfcf;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
 
-    /* SVG зъбче */
+    .container {
+        text-align: center;
+        position: relative;
+    }
+
+    /* Tooth */
+    .tooth-wrapper {
+        position: relative;
+        width: 200px;
+        height: 220px;
+        margin: 0 auto 20px;
+    }
+
     .tooth {
-      width: 160px;
-      animation: wave 2s infinite;
+        width: 200px;
+        height: 200px;
+        background: white;
+        border-radius: 50% 50% 40% 40%;
+        position: relative;
+        animation: float 2s ease-in-out infinite;
+    }
+
+    .tooth::before,
+    .tooth::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        width: 40px;
+        height: 60px;
+        background: white;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .tooth::before {
+        left: 30px;
+        transform: rotate(-10deg);
+    }
+
+    .tooth::after {
+        right: 30px;
+        transform: rotate(10deg);
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    /* Face */
+    .eyes {
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 0 40px;
+    }
+
+    .eye {
+        width: 12px;
+        height: 12px;
+        background: black;
+        border-radius: 50%;
+    }
+
+    .mouth {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        width: 50px;
+        height: 25px;
+        border-bottom: 4px solid black;
+        border-radius: 0 0 50px 50px;
+        transform: translateX(-50%);
+    }
+
+    /* Hand */
+    .hand {
+        position: absolute;
+        right: -40px;
+        top: 100px;
+        font-size: 30px;
+        animation: wave 1.5s infinite;
     }
 
     @keyframes wave {
-      0% { transform: rotate(0deg); }
-      25% { transform: rotate(6deg); }
-      50% { transform: rotate(0deg); }
-      75% { transform: rotate(-6deg); }
-      100% { transform: rotate(0deg); }
+        0% { transform: rotate(0deg); }
+        50% { transform: rotate(20deg); }
+        100% { transform: rotate(0deg); }
     }
 
-    .question {
-      font-size: 28px;
-      margin: 20px 0;
-      color: #fff;
+    h1 {
+        color: white;
+        margin-bottom: 20px;
     }
 
     .buttons {
-      position: relative;
-      height: 60px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
     }
 
     button {
-      font-size: 20px;
-      padding: 10px 25px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
+        padding: 12px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
     }
 
-    #yes { background: #4CAF50; color: #fff; margin-right: 20px; }
-    #no {
-      background: #f44336;
-      color: #fff;
-      position: absolute;
-      right: 0;
-      transition: transform 0.3s ease;
+    .yes {
+        background: white;
+        color: #33cfcf;
     }
 
-    .hidden { display: none; }
-
-    .happy {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
+    .no {
+        background: #ff6b6b;
+        color: white;
+        position: relative;
     }
 
-    .message {
-      font-size: 26px;
-      color: white;
-      margin-top: 20px;
+    /* Bottom curve */
+    .curve {
+        position: absolute;
+        bottom: -100px;
+        left: 0;
+        width: 100vw;
+        height: 200px;
+        background: white;
+        border-radius: 50% 50% 0 0;
     }
-  </style>
+
+    /* After YES */
+    .hidden {
+        display: none;
+    }
+
+    .teeth-holding {
+        font-size: 80px;
+        animation: pop 1s ease;
+    }
+
+    @keyframes pop {
+        from { transform: scale(0); }
+        to { transform: scale(1); }
+    }
+</style>
 </head>
 <body>
-  <div class="container">
 
-    <!-- Етап 1 -->
-    <div id="stage1">
-      <!-- SVG зъбче (без външни картинки) -->
-      <svg class="tooth" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-  <!-- cartoon зъбче с ДВА ЯСНИ ОСТРИ КРАЯ -->
-  <path d="M45 35
-           Q100 5 155 35
-           Q175 55 170 95
-           Q165 135 145 165
-           L120 215
-           Q110 235 100 225
-           Q90 235 80 215
-           L55 165
-           Q35 135 30 95
-           Q25 55 45 35 Z"
-        fill="#e6f7f7" stroke="#2f7f7f" stroke-width="5" stroke-linejoin="round"/>
-
-  <!-- отблясък -->
-  <path d="M65 55 Q85 35 95 60 Q75 105 65 55" fill="#ffffff" opacity="0.65"/>
-
-  <!-- очи (cartoon, щастливи) -->
-  <path d="M70 95 Q80 85 90 95" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
-  <path d="M110 95 Q120 85 130 95" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
-
-  <!-- мигли -->
-  <line x1="88" y1="92" x2="82" y2="86" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-  <line x1="132" y1="92" x2="138" y2="86" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-
-  <!-- бузки -->
-  <ellipse cx="75" cy="115" rx="9" ry="7" fill="#ff9eb5"/>
-  <ellipse cx="125" cy="115" rx="9" ry="7" fill="#ff9eb5"/>
-
-  <!-- усмивка -->
-  <path d="M90 120 Q100 130 110 120" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
-
-  <!-- ръце -->
-  <line x1="30" y1="120" x2="5" y2="115" stroke="#000" stroke-width="5" stroke-linecap="round"/>
-  <line x1="170" y1="120" x2="195" y2="115" stroke="#000" stroke-width="5" stroke-linecap="round"/>
-</svg>
-
-      <div class="question">Ще излезеш ли с мен?</div>
-      <div class="buttons">
-        <button id="yes">Да</button>
-        <button id="no">Не</button>
-      </div>
+<div class="container">
+    <div class="tooth-wrapper" id="toothArea">
+        <div class="tooth">
+            <div class="eyes">
+                <div class="eye"></div>
+                <div class="eye"></div>
+            </div>
+            <div class="mouth"></div>
+            <div class="hand">👋</div>
+        </div>
     </div>
 
-    <!-- Етап 2 -->
-    <div id="stage2" class="hidden">
-      <div class="happy">
-        <!-- Зъбче 1 -->
-        <svg class="tooth" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-  <!-- cartoon зъбче с ДВА ЯСНИ ОСТРИ КРАЯ -->
-  <path d="M45 35
-           Q100 5 155 35
-           Q175 55 170 95
-           Q165 135 145 165
-           L120 215
-           Q110 235 100 225
-           Q90 235 80 215
-           L55 165
-           Q35 135 30 95
-           Q25 55 45 35 Z"
-        fill="#e6f7f7" stroke="#2f7f7f" stroke-width="5" stroke-linejoin="round"/>
+    <h1 id="question">ще излезеш ли с мен</h1>
 
-  <!-- отблясък -->
-  <path d="M65 55 Q85 35 95 60 Q75 105 65 55" fill="#ffffff" opacity="0.65"/>
-
-  <!-- очи (cartoon, щастливи) -->
-  <path d="M70 95 Q80 85 90 95" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
-  <path d="M110 95 Q120 85 130 95" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
-
-  <!-- мигли -->
-  <line x1="88" y1="92" x2="82" y2="86" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-  <line x1="132" y1="92" x2="138" y2="86" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-
-  <!-- бузки -->
-  <ellipse cx="75" cy="115" rx="9" ry="7" fill="#ff9eb5"/>
-  <ellipse cx="125" cy="115" rx="9" ry="7" fill="#ff9eb5"/>
-
-  <!-- усмивка -->
-  <path d="M90 120 Q100 130 110 120" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
-
-  <!-- ръце -->
-  <line x1="30" y1="120" x2="5" y2="115" stroke="#000" stroke-width="5" stroke-linecap="round"/>
-  <line x1="170" y1="120" x2="195" y2="115" stroke="#000" stroke-width="5" stroke-linecap="round"/>
-</svg>
-
-        <!-- Зъбче 2 -->
-        <svg class="tooth" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-  <!-- cartoon зъбче с ДВА ЯСНИ ОСТРИ КРАЯ -->
-  <path d="M45 35
-           Q100 5 155 35
-           Q175 55 170 95
-           Q165 135 145 165
-           L120 215
-           Q110 235 100 225
-           Q90 235 80 215
-           L55 165
-           Q35 135 30 95
-           Q25 55 45 35 Z"
-        fill="#e6f7f7" stroke="#2f7f7f" stroke-width="5" stroke-linejoin="round"/>
-
-  <!-- отблясък -->
-  <path d="M65 55 Q85 35 95 60 Q75 105 65 55" fill="#ffffff" opacity="0.65"/>
-
-  <!-- очи (cartoon, щастливи) -->
-  <path d="M70 95 Q80 85 90 95" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
-  <path d="M110 95 Q120 85 130 95" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
-
-  <!-- мигли -->
-  <line x1="88" y1="92" x2="82" y2="86" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-  <line x1="132" y1="92" x2="138" y2="86" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-
-  <!-- бузки -->
-  <ellipse cx="75" cy="115" rx="9" ry="7" fill="#ff9eb5"/>
-  <ellipse cx="125" cy="115" rx="9" ry="7" fill="#ff9eb5"/>
-
-  <!-- усмивка -->
-  <path d="M90 120 Q100 130 110 120" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
-
-  <!-- ръце -->
-  <line x1="30" y1="120" x2="5" y2="115" stroke="#000" stroke-width="5" stroke-linecap="round"/>
-  <line x1="170" y1="120" x2="195" y2="115" stroke="#000" stroke-width="5" stroke-linecap="round"/>
-</svg>
-      </div>
-      <div class="message">Нямам търпение, Весич ❤️</div>
+    <div class="buttons" id="buttons">
+        <button class="yes" onclick="yesClick()">ДА</button>
+        <button class="no" id="noBtn">НЕ</button>
     </div>
+</div>
 
-  </div>
+<div class="curve"></div>
 
-  <script>
-    const noBtn = document.getElementById('no');
-    const yesBtn = document.getElementById('yes');
-    const stage1 = document.getElementById('stage1');
-    const stage2 = document.getElementById('stage2');
+<script>
+    const noBtn = document.getElementById("noBtn");
 
-    noBtn.addEventListener('mouseover', () => {
-      noBtn.style.transform = 'translateX(140px)';
-      setTimeout(() => noBtn.style.transform = 'translateX(0)', 300);
+    noBtn.addEventListener("mouseover", () => {
+        noBtn.style.transform = "translateX(120px)";
+        setTimeout(() => {
+            noBtn.style.transform = "translateX(0)";
+        }, 300);
     });
 
-    yesBtn.addEventListener('click', () => {
-      stage1.classList.add('hidden');
-      stage2.classList.remove('hidden');
-    });
-  </script>
+    function yesClick() {
+        document.getElementById("buttons").classList.add("hidden");
+        document.getElementById("question").innerText = "нямам търпение Весич 💙";
+        document.getElementById("toothArea").innerHTML =
+            `<div class="teeth-holding">🦷🤝🦷</div>`;
+    }
+</script>
+
 </body>
 </html>
