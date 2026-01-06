@@ -119,16 +119,34 @@
       <div class="tooth-wrap">
         <!-- Tooth SVG -->
         <svg width="180" height="200" viewBox="0 0 180 200" xmlns="http://www.w3.org/2000/svg">
-          <path d="M30 30 C30 5, 150 5, 150 30 V110 C150 165, 115 190, 90 190 C65 190, 30 165, 30 110 Z" fill="#e7f7f7" stroke="#5bbcbc" stroke-width="6" />
-          <!-- eyes -->
-          <path d="M60 80 Q70 70 80 80" stroke="#0b5f63" stroke-width="4" fill="none" />
-          <path d="M100 80 Q110 70 120 80" stroke="#0b5f63" stroke-width="4" fill="none" />
-          <!-- cheeks -->
-          <circle cx="60" cy="95" r="6" fill="#ff9bb8" />
-          <circle cx="120" cy="95" r="6" fill="#ff9bb8" />
-          <!-- smile -->
-          <path d="M80 105 Q90 112 100 105" stroke="#0b5f63" stroke-width="4" fill="none" />
-        </svg>
+  <!-- Tooth body based on provided reference -->
+  <path d="M40 28
+           C40 8, 140 8, 140 28
+           C155 32, 160 52, 154 72
+           C150 95, 150 120, 140 148
+           C130 175, 112 190, 90 190
+           C68 190, 50 175, 40 148
+           C30 120, 30 95, 26 72
+           C20 52, 25 32, 40 28 Z"
+        fill="#eafafa"
+        stroke="#5bbcbc"
+        stroke-width="6"
+        stroke-linejoin="round" />
+
+  <!-- shine -->
+  <path d="M55 40 C45 75, 45 120, 60 150" stroke="#ffffff" stroke-width="8" opacity="0.45" fill="none" />
+
+  <!-- eyes -->
+  <path d="M65 88 Q75 78 85 88" stroke="#0b5f63" stroke-width="4" fill="none" stroke-linecap="round" />
+  <path d="M95 88 Q105 78 115 88" stroke="#0b5f63" stroke-width="4" fill="none" stroke-linecap="round" />
+
+  <!-- cheeks -->
+  <ellipse cx="65" cy="104" rx="7" ry="5" fill="#ff9bb8" />
+  <ellipse cx="115" cy="104" rx="7" ry="5" fill="#ff9bb8" />
+
+  <!-- smile -->
+  <path d="M80 112 Q90 120 100 112" stroke="#0b5f63" stroke-width="4" fill="none" stroke-linecap="round" />
+</svg>
 
         <!-- Waving hand -->
         <svg class="hand" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
