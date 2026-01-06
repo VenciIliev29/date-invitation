@@ -10,31 +10,30 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #40e0d0; /* тюркоаз */
+      background-color: #40e0d0;
       font-family: 'Comic Sans MS', cursive, sans-serif;
     }
 
-    .container {
-      text-align: center;
-    }
+    .container { text-align: center; }
 
+    /* SVG зъбче */
     .tooth {
-      width: 150px;
+      width: 160px;
       animation: wave 2s infinite;
     }
 
     @keyframes wave {
       0% { transform: rotate(0deg); }
-      25% { transform: rotate(5deg); }
+      25% { transform: rotate(6deg); }
       50% { transform: rotate(0deg); }
-      75% { transform: rotate(-5deg); }
+      75% { transform: rotate(-6deg); }
       100% { transform: rotate(0deg); }
     }
 
     .question {
       font-size: 28px;
       margin: 20px 0;
-      color: #ffffff;
+      color: #fff;
     }
 
     .buttons {
@@ -50,29 +49,21 @@
       cursor: pointer;
     }
 
-    #yes {
-      background-color: #4CAF50;
-      color: white;
-      margin-right: 20px;
-    }
-
+    #yes { background: #4CAF50; color: #fff; margin-right: 20px; }
     #no {
-      background-color: #f44336;
-      color: white;
+      background: #f44336;
+      color: #fff;
       position: absolute;
       right: 0;
       transition: transform 0.3s ease;
     }
 
-    .hidden {
-      display: none;
-    }
+    .hidden { display: none; }
 
     .happy {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 20px;
+      gap: 30px;
     }
 
     .message {
@@ -84,8 +75,28 @@
 </head>
 <body>
   <div class="container">
+
+    <!-- Етап 1 -->
     <div id="stage1">
-      <img class="tooth" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Tooth_icon.svg/512px-Tooth_icon.svg.png" alt="зъбче" />
+      <!-- SVG зъбче (без външни картинки) -->
+      <svg class="tooth" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+        <!-- корона -->
+        <polygon points="110,10 140,10 145,35 105,35" fill="#FFD700"/>
+        <!-- тяло -->
+        <path d="M50 40 Q100 10 150 40 V140 C150 190 120 210 100 210 C80 210 50 190 50 140 Z" fill="white" stroke="black" stroke-width="3"/>
+        <!-- очи -->
+        <circle cx="80" cy="90" r="10" fill="black"/>
+        <circle cx="120" cy="90" r="10" fill="black"/>
+        <!-- бузки -->
+        <circle cx="70" cy="115" r="6" fill="pink"/>
+        <circle cx="130" cy="115" r="6" fill="pink"/>
+        <!-- усмивка -->
+        <path d="M85 120 Q100 130 115 120" stroke="black" fill="none" stroke-width="3"/>
+        <!-- ръце -->
+        <line x1="50" y1="100" x2="20" y2="90" stroke="black" stroke-width="4"/>
+        <line x1="150" y1="100" x2="180" y2="90" stroke="black" stroke-width="4"/>
+      </svg>
+
       <div class="question">Ще излезеш ли с мен?</div>
       <div class="buttons">
         <button id="yes">Да</button>
@@ -93,13 +104,15 @@
       </div>
     </div>
 
+    <!-- Етап 2 -->
     <div id="stage2" class="hidden">
       <div class="happy">
-        <img class="tooth" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Tooth_icon.svg/512px-Tooth_icon.svg.png" />
-        <img class="tooth" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Tooth_icon.svg/512px-Tooth_icon.svg.png" />
+        <svg class="tooth" viewBox="0 0 200 240"><path d="M50 40 Q100 10 150 40 V140 C150 190 120 210 100 210 C80 210 50 190 50 140 Z" fill="white" stroke="black" stroke-width="3"/></svg>
+        <svg class="tooth" viewBox="0 0 200 240"><path d="M50 40 Q100 10 150 40 V140 C150 190 120 210 100 210 C80 210 50 190 50 140 Z" fill="white" stroke="black" stroke-width="3"/></svg>
       </div>
       <div class="message">Нямам търпение, Весич ❤️</div>
     </div>
+
   </div>
 
   <script>
@@ -109,10 +122,8 @@
     const stage2 = document.getElementById('stage2');
 
     noBtn.addEventListener('mouseover', () => {
-      noBtn.style.transform = 'translateX(120px)';
-      setTimeout(() => {
-        noBtn.style.transform = 'translateX(0)';
-      }, 300);
+      noBtn.style.transform = 'translateX(140px)';
+      setTimeout(() => noBtn.style.transform = 'translateX(0)', 300);
     });
 
     yesBtn.addEventListener('click', () => {
