@@ -80,33 +80,39 @@
     <div id="stage1">
       <!-- SVG зъбче (без външни картинки) -->
       <svg class="tooth" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-  <!-- cartoon зъбче -->
-  <path d="M60 40
-           Q100 5 140 40
-           Q165 55 160 95
-           Q155 140 135 170
-           Q120 205 100 220
-           Q80 205 65 170
-           Q45 140 40 95
-           Q35 55 60 40 Z"
-        fill="#ffffff" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+  <!-- cartoon зъбче – форма като примера -->
+  <path d="M50 40
+           Q100 10 150 40
+           Q170 55 165 95
+           Q160 135 140 165
+           Q125 200 110 220
+           Q100 230 90 220
+           Q75 200 60 165
+           Q40 135 35 95
+           Q30 55 50 40 Z"
+        fill="#e6f7f7" stroke="#2f7f7f" stroke-width="5" stroke-linejoin="round"/>
 
-  <!-- очи -->
-  <circle cx="85" cy="95" r="10" fill="#000"/>
-  <circle cx="115" cy="95" r="10" fill="#000"/>
-  <circle cx="88" cy="92" r="3" fill="#fff"/>
-  <circle cx="118" cy="92" r="3" fill="#fff"/>
+  <!-- отблясък -->
+  <path d="M65 55 Q85 40 90 60 Q75 95 65 55" fill="#ffffff" opacity="0.7"/>
+
+  <!-- очи (затворени, щастливи) -->
+  <path d="M70 95 Q80 85 90 95" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M110 95 Q120 85 130 95" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- мигли -->
+  <line x1="88" y1="92" x2="82" y2="86" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="132" y1="92" x2="138" y2="86" stroke="#000" stroke-width="3" stroke-linecap="round"/>
 
   <!-- бузки -->
-  <circle cx="70" cy="120" r="7" fill="#ffb6c1"/>
-  <circle cx="130" cy="120" r="7" fill="#ffb6c1"/>
+  <ellipse cx="75" cy="115" rx="9" ry="7" fill="#ff9eb5"/>
+  <ellipse cx="125" cy="115" rx="9" ry="7" fill="#ff9eb5"/>
 
   <!-- усмивка -->
-  <path d="M85 130 Q100 145 115 130" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M90 120 Q100 130 110 120" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
 
   <!-- ръце -->
-  <line x1="40" y1="120" x2="15" y2="110" stroke="#000" stroke-width="5" stroke-linecap="round"/>
-  <line x1="160" y1="120" x2="185" y2="110" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+  <line x1="40" y1="120" x2="15" y2="115" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+  <line x1="160" y1="120" x2="185" y2="115" stroke="#000" stroke-width="5" stroke-linecap="round"/>
 </svg>
 
       <div class="question">Ще излезеш ли с мен?</div>
@@ -121,64 +127,76 @@
       <div class="happy">
         <!-- Зъбче 1 -->
         <svg class="tooth" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-  <!-- cartoon зъбче -->
-  <path d="M60 40
-           Q100 5 140 40
-           Q165 55 160 95
-           Q155 140 135 170
-           Q120 205 100 220
-           Q80 205 65 170
-           Q45 140 40 95
-           Q35 55 60 40 Z"
-        fill="#ffffff" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+  <!-- cartoon зъбче – форма като примера -->
+  <path d="M50 40
+           Q100 10 150 40
+           Q170 55 165 95
+           Q160 135 140 165
+           Q125 200 110 220
+           Q100 230 90 220
+           Q75 200 60 165
+           Q40 135 35 95
+           Q30 55 50 40 Z"
+        fill="#e6f7f7" stroke="#2f7f7f" stroke-width="5" stroke-linejoin="round"/>
 
-  <!-- очи -->
-  <circle cx="85" cy="95" r="10" fill="#000"/>
-  <circle cx="115" cy="95" r="10" fill="#000"/>
-  <circle cx="88" cy="92" r="3" fill="#fff"/>
-  <circle cx="118" cy="92" r="3" fill="#fff"/>
+  <!-- отблясък -->
+  <path d="M65 55 Q85 40 90 60 Q75 95 65 55" fill="#ffffff" opacity="0.7"/>
+
+  <!-- очи (затворени, щастливи) -->
+  <path d="M70 95 Q80 85 90 95" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M110 95 Q120 85 130 95" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- мигли -->
+  <line x1="88" y1="92" x2="82" y2="86" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="132" y1="92" x2="138" y2="86" stroke="#000" stroke-width="3" stroke-linecap="round"/>
 
   <!-- бузки -->
-  <circle cx="70" cy="120" r="7" fill="#ffb6c1"/>
-  <circle cx="130" cy="120" r="7" fill="#ffb6c1"/>
+  <ellipse cx="75" cy="115" rx="9" ry="7" fill="#ff9eb5"/>
+  <ellipse cx="125" cy="115" rx="9" ry="7" fill="#ff9eb5"/>
 
   <!-- усмивка -->
-  <path d="M85 130 Q100 145 115 130" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M90 120 Q100 130 110 120" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
 
   <!-- ръце -->
-  <line x1="40" y1="120" x2="15" y2="110" stroke="#000" stroke-width="5" stroke-linecap="round"/>
-  <line x1="160" y1="120" x2="185" y2="110" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+  <line x1="40" y1="120" x2="15" y2="115" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+  <line x1="160" y1="120" x2="185" y2="115" stroke="#000" stroke-width="5" stroke-linecap="round"/>
 </svg>
 
         <!-- Зъбче 2 -->
         <svg class="tooth" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-  <!-- cartoon зъбче -->
-  <path d="M60 40
-           Q100 5 140 40
-           Q165 55 160 95
-           Q155 140 135 170
-           Q120 205 100 220
-           Q80 205 65 170
-           Q45 140 40 95
-           Q35 55 60 40 Z"
-        fill="#ffffff" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+  <!-- cartoon зъбче – форма като примера -->
+  <path d="M50 40
+           Q100 10 150 40
+           Q170 55 165 95
+           Q160 135 140 165
+           Q125 200 110 220
+           Q100 230 90 220
+           Q75 200 60 165
+           Q40 135 35 95
+           Q30 55 50 40 Z"
+        fill="#e6f7f7" stroke="#2f7f7f" stroke-width="5" stroke-linejoin="round"/>
 
-  <!-- очи -->
-  <circle cx="85" cy="95" r="10" fill="#000"/>
-  <circle cx="115" cy="95" r="10" fill="#000"/>
-  <circle cx="88" cy="92" r="3" fill="#fff"/>
-  <circle cx="118" cy="92" r="3" fill="#fff"/>
+  <!-- отблясък -->
+  <path d="M65 55 Q85 40 90 60 Q75 95 65 55" fill="#ffffff" opacity="0.7"/>
+
+  <!-- очи (затворени, щастливи) -->
+  <path d="M70 95 Q80 85 90 95" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M110 95 Q120 85 130 95" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- мигли -->
+  <line x1="88" y1="92" x2="82" y2="86" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="132" y1="92" x2="138" y2="86" stroke="#000" stroke-width="3" stroke-linecap="round"/>
 
   <!-- бузки -->
-  <circle cx="70" cy="120" r="7" fill="#ffb6c1"/>
-  <circle cx="130" cy="120" r="7" fill="#ffb6c1"/>
+  <ellipse cx="75" cy="115" rx="9" ry="7" fill="#ff9eb5"/>
+  <ellipse cx="125" cy="115" rx="9" ry="7" fill="#ff9eb5"/>
 
   <!-- усмивка -->
-  <path d="M85 130 Q100 145 115 130" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M90 120 Q100 130 110 120" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>
 
   <!-- ръце -->
-  <line x1="40" y1="120" x2="15" y2="110" stroke="#000" stroke-width="5" stroke-linecap="round"/>
-  <line x1="160" y1="120" x2="185" y2="110" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+  <line x1="40" y1="120" x2="15" y2="115" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+  <line x1="160" y1="120" x2="185" y2="115" stroke="#000" stroke-width="5" stroke-linecap="round"/>
 </svg>
       </div>
       <div class="message">Нямам търпение, Весич ❤️</div>
