@@ -1,101 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Will You Go Out With Me?</title>
+<title>Ще излезеш ли с мен?</title>
 <style>
   body {
-    background-color: #40e0d0;
+    margin: 0;
+    background: #40e0d0;
+    font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  .container {
     text-align: center;
   }
 
-  #question {
-    font-size: 2rem;
-    margin-top: 20px;
-    font-weight: bold;
+  #tooth {
+    width: 200px;
   }
 
-  .btn-container {
-    margin-top: 25px;
+  h1 {
+    color: white;
+    font-size: 32px;
+    margin-top: 20px;
+  }
+
+  .buttons {
+    margin-top: 30px;
     position: relative;
-    width: 260px;
   }
 
   button {
-    padding: 12px 25px;
-    font-size: 1.3rem;
+    padding: 15px 30px;
+    font-size: 20px;
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     cursor: pointer;
   }
 
-  #yesBtn {
+  #yes {
     background-color: #ffffff;
   }
 
-  #noBtn {
-    background-color: #ffffff;
+  #no {
+    background-color: #ff5757;
+    color: white;
     position: absolute;
-    left: 140px;
-    transition: all 0.3s ease;
+    left: 150px;
+    animation: slide 1.3s infinite alternate ease-in-out;
+    pointer-events: none;
   }
 
-  #result {
+  @keyframes slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(120px); }
+  }
+
+  .result {
     display: none;
-    margin-top: 40px;
-    font-size: 2rem;
-    font-weight: bold;
+    text-align: center;
   }
 
-  #gifContainer img {
-    width: 220px;
+  #love-teeth {
+    width: 260px;
+    margin-bottom: 20px;
+  }
+
+  #msg {
+    font-size: 30px;
+    color: white;
   }
 </style>
 </head>
 <body>
 
-<div id="gifContainer">
-  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDB5bHlsaDhjNWl6MGcyOTB6aTltOW45eDZxdjY3Z291MzRubmJ3NiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/CLFeR7U7hF8TAPBRlV/giphy.gif" />
+<div class="container" id="main-screen">
+  <img id="tooth" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDB5bHlsaDhjNWl6MGcyOTB6aTltOW45eDZxdjY3Z291MzRubmJ3NiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/CLFeR7U7hF8TAPBRlV/giphy.gif" />
+  <h1>Ще излезеш ли с мен?</h1>
+
+  <div class="buttons">
+    <button id="yes">Да</button>
+    <button id="no">Не</button>
+  </div>
 </div>
 
-<div id="question">Will you go out with me?</div>
-
-<div class="btn-container">
-  <button id="yesBtn">Yes</button>
-  <button id="noBtn">No</button>
-</div>
-
-<div id="result">
-  <img id="secondGif" src="" style="width:220px; display:block; margin:auto;" />
-  <div>I can't wait Vesich ❤️</div>
+<div class="result" id="result-screen">
+  <img id="love-teeth" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDB5bHlsaDhjNWl6MGcyOTB6aTltOW45eDZxdjY3Z291MzRubmJ3NiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/Pm3nsEcuc0YlwBiZSV/giphy.gif" />
+  <div id="msg">Нямам търпение, Весич ❤️</div>
 </div>
 
 <script>
-  const noBtn = document.getElementById("noBtn");
-  const yesBtn = document.getElementById("yesBtn");
-  const result = document.getElementById("result");
-  const secondGif = document.getElementById("secondGif");
-
-  noBtn.addEventListener("mouseover", () => {
-    noBtn.style.transform = "translateX(150px)";
-  });
-
-  noBtn.addEventListener("click", (e) => {
-    e.preventDefault(); // cannot click
-  });
-
-  yesBtn.addEventListener("click", () => {
-    secondGif.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDB5bHlsaDhjNWl6MGcyOTB6aTltOW45eDZxdjY3Z291MzRubmJ3NiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/Pm3nsEcuc0YlwBiZSV/giphy.gif";
-    result.style.display = "block";
-  });
+  document.getElementById("yes").onclick = function() {
+    document.getElementById("main-screen").style.display = "none";
+    document.getElementById("result-screen").style.display = "block";
+  }
 </script>
 
 </body>
