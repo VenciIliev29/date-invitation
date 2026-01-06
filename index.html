@@ -5,113 +5,122 @@
 <title>Покана за среща</title>
 
 <style>
-    body {
-        margin: 0;
-        height: 100vh;
-        background: pink;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: Arial, sans-serif;
-    }
+body {
+    margin: 0;
+    height: 100vh;
+    background: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
 
-    .container {
-        text-align: center;
-        position: relative;
-    }
+.container {
+    text-align: center;
+    position: relative;
+}
 
-    .sausage {
-        width: 120px;
-        height: 260px;
-        background: #d68b5a;
-        border-radius: 60px;
-        margin: 0 auto 20px;
-        position: relative;
-        animation: wave 1s infinite alternate;
-    }
+.sausage {
+    width: 120px;
+    height: 260px;
+    background: #d68b5a;
+    border-radius: 60px;
+    margin: 0 auto 20px;
+    position: relative;
+    animation: wave 1s infinite alternate;
+}
 
-    .eye {
-        width: 10px;
-        height: 10px;
-        background: black;
-        border-radius: 50%;
-        position: absolute;
-        top: 60px;
-    }
+.eye {
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 60px;
+}
 
-    .eye.left { left: 35px; }
-    .eye.right { right: 35px; }
+.eye.left { left: 35px; }
+.eye.right { right: 35px; }
 
-    .smile {
-        width: 40px;
-        height: 20px;
-        border-bottom: 4px solid black;
-        border-radius: 0 0 40px 40px;
-        position: absolute;
-        top: 85px;
-        left: 40px;
-    }
+.smile {
+    width: 40px;
+    height: 20px;
+    border-bottom: 4px solid black;
+    border-radius: 0 0 40px 40px;
+    position: absolute;
+    top: 85px;
+    left: 40px;
+}
 
-    .hand {
-        width: 40px;
-        height: 10px;
-        background: #d68b5a;
-        position: absolute;
-        top: 120px;
-    }
+.hand {
+    width: 40px;
+    height: 10px;
+    background: #d68b5a;
+    position: absolute;
+    top: 120px;
+}
 
-    .hand.left {
-        left: -35px;
-        transform-origin: right;
-        animation: handWave 0.5s infinite alternate;
-    }
+.hand.left {
+    left: -35px;
+    transform-origin: right;
+    animation: handWave 0.5s infinite alternate;
+}
 
-    .hand.right {
-        right: -35px;
-    }
+.hand.right {
+    right: -35px;
+}
 
-    h1 {
-        margin-bottom: 20px;
-    }
+h1 {
+    margin-bottom: 20px;
+}
 
-    button {
-        padding: 12px 25px;
-        font-size: 18px;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-        margin: 10px;
-    }
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 10px;
+}
 
-    #yes {
-        background: #ff5fa2;
-        color: white;
-    }
+#yes {
+    background: #ff5fa2;
+    color: white;
+}
 
-    #no {
-        background: #ccc;
-        position: absolute;
-    }
+#no {
+    background: #ccc;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: left 0.3s ease;
+}
 
-    .result {
-        display: none;
-    }
+/* резултат */
+.result {
+    display: none;
+}
 
-    .double {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-    }
+.double {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
 
-    @keyframes wave {
-        from { transform: rotate(-2deg); }
-        to { transform: rotate(2deg); }
-    }
+/* махаме махането при резултата */
+.result .hand.left {
+    animation: none;
+}
 
-    @keyframes handWave {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(20deg); }
-    }
+@keyframes wave {
+    from { transform: rotate(-2deg); }
+    to { transform: rotate(2deg); }
+}
+
+@keyframes handWave {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(20deg); }
+}
 </style>
 </head>
 
@@ -134,29 +143,50 @@
 
 <div class="container result" id="result">
     <div class="double">
-        <div class="sausage"></div>
-        <div class="sausage"></div>
+        <div class="sausage">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="smile"></div>
+            <div class="hand left"></div>
+            <div class="hand right"></div>
+        </div>
+
+        <div class="sausage">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="smile"></div>
+            <div class="hand left"></div>
+            <div class="hand right"></div>
+        </div>
     </div>
+
     <h1>Нямам търпение 😍</h1>
 </div>
 
 <script>
-    const noBtn = document.getElementById("no");
-    const yesBtn = document.getElementById("yes");
-    const main = document.getElementById("main");
-    const result = document.getElementById("result");
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const main = document.getElementById("main");
+const result = document.getElementById("result");
 
-    noBtn.addEventListener("mouseover", () => {
-        const x = Math.random() * (window.innerWidth - 100);
-        const y = Math.random() * (window.innerHeight - 50);
-        noBtn.style.left = x + "px";
-        noBtn.style.top = y + "px";
-    });
+let direction = 1;
+let pos = 50;
 
-    yesBtn.addEventListener("click", () => {
-        main.style.display = "none";
-        result.style.display = "block";
-    });
+function moveNo() {
+    if (pos > 80 || pos < 20) {
+        direction *= -1;
+    }
+    pos += direction * 15;
+    noBtn.style.left = pos + "%";
+}
+
+noBtn.addEventListener("mouseenter", moveNo);
+noBtn.addEventListener("touchstart", moveNo);
+
+yesBtn.addEventListener("click", () => {
+    main.style.display = "none";
+    result.style.display = "block";
+});
 </script>
 
 </body>
